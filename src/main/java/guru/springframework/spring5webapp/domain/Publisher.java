@@ -12,11 +12,8 @@ public class Publisher {
 
     private String name;
 
-    @OneToMany(
-            mappedBy = "publisher"/*,
-            cascade = CascadeType.ALL,
-            orphanRemoval = true*/
-    )
+    @OneToMany
+    @JoinColumn(name = "publisher_id")
     private Set<Book> books = new HashSet<>();
 
     public Publisher() {

@@ -24,31 +24,42 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
+        Publisher oreily = new Publisher("oreily");
+        publisherRepository.save(oreily);
+
+
         Author evan = new Author("evan", "adams");
         Book ddd = new Book("DDD", "123123");
-        Publisher oreily = new Publisher("oreily");
-        oreily.getBooks().add(ddd);
-        evan.getBooks().add(ddd);
+
         ddd.getAuthors().add(evan);
+        evan.getBooks().add(ddd);
+
         ddd.setPublisher(oreily);
-        bookRepository.save(ddd);
+        oreily.getBooks().add(ddd);
+
         authorRepository.save(evan);
+        bookRepository.save(ddd);
         publisherRepository.save(oreily);
+
 
         Author skiena = new Author("stiven", "skiena");
         Book algo = new Book("algo", "234234");
-        oreily.getBooks().add(algo);
-        publisherRepository.save(oreily);
-        skiena.getBooks().add(algo);
+
         algo.getAuthors().add(skiena);
+        skiena.getBooks().add(algo);
+
+        oreily.getBooks().add(algo);
         algo.setPublisher(oreily);
-        bookRepository.save(algo);
+
         authorRepository.save(skiena);
+        bookRepository.save(algo);
+        publisherRepository.save(oreily);
 
         System.out.println("Bootstrap loaded");
         System.out.println("books:" + bookRepository.count());
-        System.out.println("authors:" + bookRepository.count());
-        System.out.println("publishers:" + bookRepository.count());
+        System.out.println("authors:" + authorRepository.count());
+        System.out.println("publishers:" + publisherRepository.count());
 
 //        System.out.println(bookRepository.findAll());
 //        System.out.println(bookRepository.findById(1L));
