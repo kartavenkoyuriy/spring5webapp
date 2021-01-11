@@ -72,7 +72,7 @@ public class Publisher {
         return "Publisher{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", books=" + books.size() +
+                ", templates=" + books.size() +
                 '}';
     }
 }

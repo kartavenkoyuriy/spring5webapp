@@ -57,7 +57,7 @@ public class BootStrapData implements CommandLineRunner {
         publisherRepository.save(oreily);
 
         System.out.println("Bootstrap loaded");
-        System.out.println("books:" + bookRepository.count());
+        System.out.println("templates:" + bookRepository.count());
         System.out.println("authors:" + authorRepository.count());
         System.out.println("publishers:" + publisherRepository.count());
 

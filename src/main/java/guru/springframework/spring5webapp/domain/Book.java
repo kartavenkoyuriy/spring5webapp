@@ -104,7 +104,7 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", publisher=" + publisher +
+                ", publisher=" + publisher.getName() +
                 ", authors=" + authors.size() +
                 '}';
     }
